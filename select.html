@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>select控件</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .select{
+            margin: 200px;
+            width: 300px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .select ul{
+            display: none;
+        }
+        .select ul li:hover{
+            color: white;
+            background-color: blue;
+        }
+        .select.active{
+            border: 1px solid green;
+        }
+        .select ul.active{
+            border-top: 1px solid green;
+        }
+        .text{
+            position: relative;
+        }
+        .text:after{
+            position: absolute;
+            right: 10px;
+            top:8px;
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border: 7px solid transparent;
+            border-top-color: #000;
+        }
+    </style>
+</head>
+<body>
+<div class="select">
+    <div class="text">请选择</div>
+    <ul class="sub">
+        <li class="">请选择</li>
+        <li class="">地下城与勇士</li>
+        <li class="">魔兽世界（国服）</li>
+        <li class="">魔兽世界（台服）</li>
+        <li class="">热血江湖</li>
+        <li class="">神鬼传奇</li>
+        <li class="">大话西游II</li>
+        <li class="">QQ幻想世界</li>
+    </ul>
+</div>
+
+<script src="../js/jquery.min.js"></script>
+<script>
+    $(".text").click(function () {
+        addClassSelecctCtrl();
+    });
+    $(".sub li").click(function () {
+        addClassSelecctCtrl();
+        $(".text").text($(this).text())
+    });
+    function addClassSelecctCtrl() {
+        $(".sub").toggle().toggleClass('active');
+        $(".select").toggleClass('active');
+    }
+</script>
+</body>
+</html>
